@@ -1,3 +1,5 @@
+
+
 *{
 margin:0;
 padding:0;
@@ -15,10 +17,45 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, rgb(247, 247, 120), rgb(250, 136, 60));
+
+    
+    background: linear-gradient(120deg,
+        #ff3b3b,
+        #ff8c3b,
+        #ffd23b,
+        #8cff3b,
+        #3bffda,
+        #3bb3ff,
+        #7a3bff,
+        #ff3be0,
+        #ff3b3b
+    );
+    background-size: 300% 300%;
+
     font-family: "Poppins", sans-serif;
     overflow: hidden;
+
+    animation: slideBG 12s ease-in-out infinite,
+               hueShift 18s linear infinite;
 }
+
+.dark{
+    background: linear-gradient(135deg, rgb(75, 74, 74), rgb(8, 8, 8));
+    animation: none !important;   /* Dark mode me animation band */
+}
+
+@keyframes slideBG {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes hueShift {
+    0%   { filter: hue-rotate(0deg); }
+    50%  { filter: hue-rotate(180deg); }
+    100% { filter: hue-rotate(360deg); }
+}
+
 .sun {
   width: 80px;
   height: 80px;
@@ -30,16 +67,6 @@ body {
   left: 100px;
 }
 
-.dark{
-    background: linear-gradient(135deg, rgb(75, 74, 74), rgb(8, 8, 8));
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: "Poppins", sans-serif;
-    overflow: hidden;
-}
 
 .container {
     width: 60vw;
@@ -64,7 +91,7 @@ h1 {
     margin-bottom: 20px;
 }
 
- .search-box input {
+.search-box input {
     padding: 10px;
     border: 2px solid #222222;
     border-radius: 8px;
